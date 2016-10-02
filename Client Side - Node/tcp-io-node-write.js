@@ -1,3 +1,9 @@
+var net =  require('net');
+var client = new net.Socket();
+
+client.connect(6000, '127.0.0.1');
+client.setNoDelay(true);
+client.write('this message is from node\n'); 
 
 
 
@@ -9,6 +15,9 @@ ws.on('open', function() {
       });
       ws.on('message', function(message) {
           console.log('received: %s', message);
+		//  var parsed_message = message.split("orientation");
+		  client.write('this message is from node\n'); 
+		  client.write(message); 
 
           });
         
